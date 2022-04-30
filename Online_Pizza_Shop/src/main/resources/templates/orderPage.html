@@ -1,0 +1,50 @@
+<div id="mainDiv" class="col-sm-12 bg-secondary" xmlns:th="http://www.thymeleaf.org">
+        <div class="row h-100">
+            <div id="order" class="offset-md-3 col-md-6 col-sm-12 border bg-dark ">
+                <form action="/order/make-order" method="POST" class="h-100">
+                    <div class="col-md-12 col-sm-12 h-25 ">
+                        <div class="col-md-12 col-sm-12 h4 text-white pt-4">Username</div>
+                        <div class="col-md-12 col-sm-12 border h-25 h5 bg-light rounded mt-2" th:text="${user.getUsername()}">Username</div>
+                        <div class="row">&nbsp</div>
+                        <div class="col-md-12 col-sm-12 h4 text-white">Address</div>
+                        <div class="col-md-12 col-sm-12 border h-25 h5 bg-light rounded mt-2" th:text="${user.getAddress()}">Address</div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 h-25 ">
+                        <div class="row col-md-12 col-sm-12 h-25"></div>
+                        <div class="row col-md-12 col-sm-12 h-25 ">
+                            <select name="delivery" id="delivery" class="bg-danger" >
+                                <option>Express Delivery</option>
+                                <option>Regular Delivery</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row col-md-12 h4 text-white "> Pizza's Selected:</div>
+                    <div id="pizzasInOrderDiv" class=" bg-light rounded mt-2 col-md-12 col-sm-12 overflow-auto ">
+                        <div th:each="pizza : ${pizzas}" class="row col-md-12">
+                            <input th:value="${pizza.getId()}" name="pizzaIds" th:type="hidden" />
+                            <div class="col-6 border font-weight-bold" th:text="${pizza.getName()}">Pizza Name</div>
+                            <div class="col-4 border font-weight-bold"  th:text="${pizza.getSize()}">Size</div>
+                            <div class="col-2 border font-weight-bold"  th:text="${pizza.getCost()}">Cost</div>
+                            <div class="col-6 border"> <p class="font-weight-bold">Ingredients added</p>
+                                <div class="w-100 border " th:each="ing : ${pizza.getIngredients()}">
+                                    <p class="d-inline-block font-weight-bold" >Ingredient Name:</p>
+                                    <div class="d-inline-block" th:text="${ing.getName()}">Ingredient Name</div>
+                                    <p class="d-inline-block font-weight-bold">Ingredient Cost:</p>
+                                    <div class="d-inline-block"  th:text="${ing.getCost()}">Ingredient Cost</div>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                    <a href="/remove" class="btn btn-danger mt-2 text-light text-decoration-none" >Remove Pizzas</a>
+                    <a href="/menu" class="btn btn-danger mt-2 text-light text-decoration-none" >Add more Pizza from Menu</a>
+                    <a href="/custom" class=" btn btn-danger mt-2 text-light text-decoration-none" >Create a new Pizza from Custom Pizza</a>
+                    <div class="col-md-12 col-sm-12 h-25">
+                        <div class="row h-25 mt-4">
+                            <button th:disabled="${pizzas.isEmpty() == true}" class="col-md-4 border border-success" type="submit">Order</button>
+                        </div>
+                        <div class="row h-25"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+</div>

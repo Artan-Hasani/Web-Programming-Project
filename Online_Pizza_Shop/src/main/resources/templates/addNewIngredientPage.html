@@ -1,0 +1,27 @@
+<div id="mainDiv" class="col-sm-12 bg-secondary text-center text-warning" xmlns:th="http://www.thymeleaf.org">
+    <h2 class="pt-5">Add new Ingredient</h2>
+    <form action="/adminFunctions/addNewPizza/addIngredient" method="POST">
+        <div class="form-group ">
+            <label for="newIngredientName" class="h3 mt-5">Name of Ingredient </label>
+            <br>
+            <input class="bg-dark mt-3  text-white w-25" type="text" name="newIngredientName" id="newIngredientName" placeholder="Name of Ingredient">
+        </div>
+        <div class="mt-3">
+            <label for="newIngredientPrice">Ingredient Price</label>
+            <input name="newIngredientPrice" id="newIngredientPrice" type="number"/>
+        </div>
+        <div class="mt-3">
+            <label>Ingredient Manufacturer</label>
+            <select id="manId" name="manId">
+
+                <option th:each="man : ${manufacturers}"  th:value="${man.getId()}" th:text="${man.getName()}">
+
+                </option>
+            </select>
+            <a class="btn btn-warning btn-sm" href="/adminFunctions/addNewPizza/addIngredient/addManufacturer">Add new Manufacturer</a>
+        </div>
+
+        <button type="submit" class="btn btn-warning btn-lg  mt-3">Submit</button>
+        <a href="/adminFunctions/addNewPizza" class="btn btn-warning btn-lg  mt-3">Back</a>
+    </form>
+</div>

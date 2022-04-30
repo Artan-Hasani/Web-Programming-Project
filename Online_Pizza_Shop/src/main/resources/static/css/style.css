@@ -1,0 +1,36 @@
+body{
+    background: url("../images/PizzaBackground.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+#mainDiv{
+    height: 50rem;
+    opacity: 0.9;
+}
+#text1{
+    color: white;
+}
+#headerLogo{
+    opacity: 0.9;
+}
+#pizzasMenu{
+    border: darkred 1px solid;
+    box-shadow: 10px 10px 25px darkred;
+}
+#order{
+    border: darkred 1px solid;
+    box-shadow: 10px 10px 25px darkred;
+}
+#pizzasInOrderDiv{
+    height: 200px;
+}
+#pizzasInRemoveDiv{
+
+}
+#confirmOrder{
+    border: darkred 1px solid;
+    box-shadow: 10px 10px 25px darkred;
+}

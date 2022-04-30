@@ -1,0 +1,53 @@
+<form method="POST" action="/order/add-custom" xmlns:th="http://www.thymeleaf.org">
+    <div id="mainDiv" class="container col-sm-12 bg-secondary">
+        <div class="row col-md-12 border h-100">
+            <div class="col-md-6">
+                <div class="row">&nbsp</div>
+                <div class="row">&nbsp</div>
+                <div class="row">&nbsp</div>
+                <div class="row">&nbsp</div>
+                <h4 class="text-light">Create a custome Pizza</h4>
+                <div class="bg-light rounded mt-2"><input type="text" name="customPizzaName"  placeholder="Add a name"></div>
+                <div th:each="ingredient : ${ingredients}" class="bg-light rounded mt-2">
+                    <div th:if="${ingredient.getName() != ''}" class="row col-md-12">
+                        <div class="col-md-3 border">
+                            <input type="checkbox"  name="ingredientIds" th:value="${ingredient.getId()}"  th:text="${ingredient.getName()}">
+                        </div>
+                        <div class="col-md-3 border" th:id="${ingredient.getName()}" th:text="${ingredient.getManufacturer().getName()}">Manufacturer Name</div>
+                        <div class="col-md-3 border" th:text="${ingredient.getCost()}"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 border bg-dark">
+                <div class="col-md-12 h-50">
+                    <div class="col-md-12 h-25"></div>
+                    <div class="col-md-12 btn btn-danger rounded mt-2  h-25">
+                        <label class="pt-4 h4">
+                            <input type="radio"  name="pizzaSize" value='Large'>Large
+                        </label>
+
+                    </div>
+                    <div class="col-md-12 btn btn-danger rounded mt-2  h-25">
+                        <label class="pt-4 h4">
+                            <input type="radio"  name="pizzaSize" value='Medium'>Medium
+                        </label>
+
+                    </div>
+                    <div class="col-md-12 btn btn-danger rounded mt-2  h-25">
+                        <label class="pt-4 h4 ">
+                            <input type="radio"  name="pizzaSize" value='Small'>Small
+                        </label>
+
+                    </div>
+                </div>
+                <div class="col-md-12 h-50 btn ">
+                    <div class="col-md-12 h-25"></div>
+                    <div class="col-md-12  btn btn-outline-danger h-25 pt-4">
+                        <input type="submit" class="btn btn-lg btn-danger" value="Add to Order">
+                    </div>
+                    <div class="col-md-12 h-25"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
