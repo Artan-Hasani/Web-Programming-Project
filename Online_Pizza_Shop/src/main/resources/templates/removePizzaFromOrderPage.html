@@ -1,0 +1,24 @@
+<div id="mainDiv" class="col-sm-12 bg-secondary" xmlns:th="http://www.thymeleaf.org">
+    <div class="row col-md-12 h4 text-white "> Pizza's In Order:</div>
+    <div id="pizzasInRemoveDiv" class="h-100 bg-light rounded mt-2 col-md-12 col-sm-12 overflow-auto ">
+        <div th:each="pizza : ${pizzas}" class="row col-md-12">
+            <form class="h-100" th:action="@{'/remove/{id}' (id=${pizza.getId()}) }" method="POST" >
+                <input th:value="${pizza.getId()}" name="pizzaIds" th:type="hidden" />
+                <div class="row col-md-12 col-sm-12 h-25 w-100">
+                   <div class="col-6 border font-weight-bold" th:text="${pizza.getName()}">Pizza Name</div>
+                   <div class="col-4 border font-weight-bold"  th:text="${pizza.getSize()}">Size</div>
+                   <div class="col-2 border font-weight-bold"  th:text="${pizza.getCost()}">Cost</div>
+                </div>
+                <div class="row w-100 col-6 border"> <p class="font-weight-bold">Ingredients added</p>
+                    <div class="w-100 border " th:each="ing : ${pizza.getIngredients()}">
+                        <p class="d-inline-block font-weight-bold" >Ingredient Name:</p>
+                        <div class="d-inline-block" th:text="${ing.getName()}">Ingredient Name</div>
+                        <p class="d-inline-block font-weight-bold">Ingredient Cost:</p>
+                        <div class="d-inline-block"  th:text="${ing.getCost()}">Ingredient Cost</div>
+                    </div>
+                    <button class="btn btn-danger mt-2 text-light text-decoration-none">Remove</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

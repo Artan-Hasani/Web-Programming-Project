@@ -1,0 +1,16 @@
+<div id="mainDiv" class="col-sm-12 bg-secondary text-center text-warning" xmlns:th="http://www.thymeleaf.org">
+    <h2 class="pt-5">Add new Manufacturer</h2>
+    <form action="/adminFunctions/addNewPizza/addIngredient/addManufacturer" method="POST">
+        <div class="form-group ">
+            <label for="newManufacturerName" class="h3 mt-5">Name of Manufacturer </label>
+            <br>
+            <input class="bg-dark mt-3  text-white w-25" type="text" name="newManufacturerName" id="newManufacturerName" placeholder="Name of Manufacturer">
+        </div>
+        <div class="mt-3">
+            <label for="newManufacturerCO">Manufacturer Country of Origin</label>
+            <input name="newManufacturerCO" id="newManufacturerCO" type="text"/>
+        </div>
+        <button type="submit" class="btn btn-warning btn-lg  mt-3">Submit</button>
+        <a href="/adminFunctions/addNewPizza/addIngredient" class="btn btn-warning btn-lg  mt-3">Back</a>
+    </form>
+</div>

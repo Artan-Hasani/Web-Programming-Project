@@ -1,0 +1,21 @@
+<div id="mainDiv" class="col-sm-12 bg-secondary" xmlns:th="http://www.thymeleaf.org">
+    <div class="pt-5 w-100 h-100 ">
+        <div id="confirmOrder" class="container bg-dark text-light  mt-5 text-center w-75 pt-5  d-flex justify-content-center" >
+            <form action="/order/confirm" method="GET">
+                <input type="hidden"  th:value="${order.getTimeUntilPizzaArrives()}" name="timeUntilPizzaArrives"/>
+                <input type="hidden"  th:value="${totalCost}" name="cost" th:hide />
+                <div>
+                    <h1 class="d-inline">Time until order arrives: </h1>
+                    <h1 class=" d-inline text-success " th:text="${order.getTimeUntilPizzaArrives()}" ></h1>
+                </div>
+                <div class="mt-3">
+                    <h1 class=" d-inline">Total cost of your order: </h1>
+                    <h1 class=" d-inline text-success " th:text="${totalCost}" ></h1>
+                    <h1 class=" d-inline  text-success " > &nbsp;den</h1>
+                </div>
+                <button type="submit" class="btn btn-success btn-lg  mt-5 mr-2 ">Confirm</button>
+                <a href="/order" class="btn btn-danger btn-lg  mt-5 ml-2">Decline</a>
+            </form>
+        </div>
+    </div>
+</div>
